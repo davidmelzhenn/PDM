@@ -8,8 +8,10 @@
     tools:context=".MainActivity">
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AULA 1"/>
+        android:layout_gravity="center"
+        android:onClick="aula2Click"
+        android:text="AULA 2"/>
 
 </LinearLayout>
