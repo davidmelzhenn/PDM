@@ -15,6 +15,7 @@ public class QuizActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("BalaioDeLenha");
         getSupportActionBar().setIcon(R.drawable.quiz_transito_icon);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
 

@@ -35,7 +35,9 @@ public class Main3Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     public void restauranteClick(View view) {
+        Intent intent = new Intent(this, RestauranteActivity.class);
+        startActivity(intent);
     }
+
 }
