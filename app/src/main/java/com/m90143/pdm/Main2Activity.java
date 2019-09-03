@@ -57,7 +57,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.d(TAG, "onStop");
-        //A activity não está ms visível mas permanece em memória
+        //A activity não está mais visível mas permanece em memória
     }
 
     @Override
