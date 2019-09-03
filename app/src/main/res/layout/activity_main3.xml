@@ -18,76 +18,33 @@
             android:minHeight="25px"
             android:id="@+id/tableLayout1"
             android:padding="10dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Valor Inicial:"
-                android:textColor="@android:color/black"
-                android:textSize="15sp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtValorInicial"
-                android:hint="Valor em R$. Ex: 1700.00"
-                android:inputType="numberDecimal"
-                android:textSize="20sp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Aplicação mensal"
-                android:textColor="@android:color/black"
-                android:textSize="15sp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtAplicacaoMensal"
-                android:hint="Ex: 100.00"
-                android:inputType="numberDecimal"
-                android:textSize="20sp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tempo da aplicação"
-                android:textColor="@android:color/black"
-                android:textSize="15sp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtTempoAplicacao"
-                android:hint="Em meses"
-                android:inputType="number"
-                android:textSize="20sp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Taxa"
-                android:textColor="@android:color/black"
-                android:textSize="15sp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtTaxa"
-                android:hint="Ex: 0.02"
-                android:inputType="numberDecimal"
-                android:textSize="20sp"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnCalcular"
+                android:id="@+id/btnPoupanca"
                 android:layout_marginTop="20dp"
-                android:text="Calcular"
-                android:onClick="calcClick"
+                android:text="Poupança"
+                android:onClick="poupancaClick"
                 android:textSize="20dp" />
 
-            <TextView
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:id="@+id/lblResultado"
-                android:textColor="@android:color/black"
-                android:textSize="25sp"/>
+                android:id="@+id/btnGrid"
+                android:layout_marginTop="20dp"
+                android:text="Informações"
+                android:onClick="infoClick"
+                android:textSize="20dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnQuiz"
+                android:layout_marginTop="20dp"
+                android:text="Quiz Transito"
+                android:onClick="quizClick"
+                android:textSize="20dp" />
+
         </TableLayout>
     </ScrollView>
 </LinearLayout>
