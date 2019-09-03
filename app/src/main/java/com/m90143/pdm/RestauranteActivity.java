@@ -41,14 +41,21 @@ public class RestauranteActivity extends AppCompatActivity {
         Integer mDividirConta = Integer.parseInt(txtDividirConta.getText().toString());
 
 
-        if (mDividirConta == 0) {
+        if (mDividirConta <= 0) {
             Toast.makeText(this, "Valor dividir conta inválido. Verifique!", Toast.LENGTH_SHORT).show();
             txtDividirConta.requestFocus();
         }
 
         Double mResult = (mConsumoTotal + mCouvert) / mDividirConta;
+
         Double mTaxaServico = (10 * mResult) / 100;
-        txtTaxaServico.setText(mTaxaServico.toString());
+        txtTaxaServico.setText(String.format("%.2f", mTaxaServico));
+
+        Double mTotal = mResult + mTaxaServico;
+        txtContaTotal.setText(String.format("%.2f", mTotal));
+
+        Double mValorPessoa = mTotal / mDividirConta;
+        txtValorPessoa.setText(String.format("%.2f", mValorPessoa));
 
     }
 }

@@ -8,4 +8,10 @@
     <string name="tempoAplicacao">Application Time:</string>
     <string name="valorInicialHint">Value in U$. Ex: 1700.00</string>
     <string name="tempoAplicacaoHint">In Months:</string>
+    <string name="consumoTotal">Total consumption U$:</string>
+    <string name="contaTotal">Total bill U$:</string>
+    <string name="dividirConta">Split bill by:</string>
+    <string name="couvert">Artistic cover charge U$:</string>
+    <string name="taxaServico">Service charge(10%) U$:</string>
+    <string name="valorPessoa">Value per person U$:</string>
 </resources>

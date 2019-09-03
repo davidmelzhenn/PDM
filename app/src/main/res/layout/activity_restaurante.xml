@@ -29,7 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Consumo total R$:"
+                    android:text="@string/consumoTotal"
                     android:textSize="17sp" />
 
                 <EditText
@@ -52,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Couvert artístico R$:"
+                    android:text="@string/couvert"
                     android:textSize="17sp" />
 
                 <EditText
@@ -75,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Dividir conta por:"
+                    android:text="@string/dividirConta"
                     android:textSize="17sp" />
 
                 <EditText
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:onClick="calcularClick"
-                android:text="Calcular conta final" />
+                android:text="@string/calcular" />
 
 
             <LinearLayout
@@ -106,7 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Taxa Serviço(10%) R$"
+                    android:text="@string/taxaServico"
                     android:textSize="17sp" />
 
                 <EditText
@@ -130,7 +130,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Conta total R$:"
+                    android:text="@string/contaTotal"
                     android:textSize="17sp" />
 
                 <EditText
@@ -153,7 +153,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Valor por pessoa:"
+                    android:text="@string/valorPessoa"
                     android:textSize="17sp" />
 
                 <EditText

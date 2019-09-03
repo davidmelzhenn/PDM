@@ -8,4 +8,10 @@
     <string name="tempoAplicacao">Tiempo de Aplicación:</string>
     <string name="valorInicialHint">Monto en €. Ex:1700.00</string>
     <string name="tempoAplicacaoHint">Em Meses:</string>
+    <string name="contaTotal">Cuenta total €:</string>
+    <string name="consumoTotal">Consumo total €:</string>
+    <string name="dividirConta">Dividir cuenta por:</string>
+    <string name="couvert">Cargo de portada artística €:</string>
+    <string name="taxaServico">Tasa de servicio(10%) €:</string>
+    <string name="valorPessoa">Valor por persona €:</string>
 </resources>

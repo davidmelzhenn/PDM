@@ -8,4 +8,10 @@
     <string name="resultado">Resultado:</string>
     <string name="valorInicialHint">Valor em R$. Ex: 1700.00</string>
     <string name="tempoAplicacaoHint">Em Meses:</string>
+    <string name="consumoTotal">Consumo total R$:</string>
+    <string name="couvert">Couvert artístico R$:</string>
+    <string name="dividirConta">Dividir conta por:</string>
+    <string name="taxaServico">Taxa de Serviço(10%) R$:</string>
+    <string name="contaTotal">Conta total R$:</string>
+    <string name="valorPessoa">Valor por pessoa R$:</string>
 </resources>
