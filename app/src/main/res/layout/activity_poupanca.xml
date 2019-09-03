@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtValorInicial"
-                android:hint="Valor em R$. Ex: 1700.00"
+                android:hint="@string/valorInicialHint"
                 android:inputType="numberDecimal"
                 android:textSize="20sp"/>
             <TextView
@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtTempoAplicacao"
-                android:hint="Em meses"
+                android:hint="@string/tempoAplicacaoHint"
                 android:inputType="number"
                 android:textSize="20sp"/>
             <TextView

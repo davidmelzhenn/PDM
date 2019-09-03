@@ -6,4 +6,6 @@
     <string name="taxa">Rate:</string>
     <string name="resultado">Result:</string>
     <string name="tempoAplicacao">Application Time:</string>
+    <string name="valorInicialHint">Value in U$. Ex: 1700.00</string>
+    <string name="tempoAplicacaoHint">In Months:</string>
 </resources>
