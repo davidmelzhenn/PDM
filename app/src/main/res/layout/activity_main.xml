@@ -14,4 +14,11 @@
         android:onClick="aula2Click"
         android:text="AULA 2"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="aula3Click"
+        android:text="AULA 3"/>
+
 </LinearLayout>
