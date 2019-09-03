@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    tools:context=".InfoActivity">
+
+    <TableRow android:layout_marginVertical="20dp">
+
+        <ImageView
+            android:src="@drawable/onibus" />
+
+        <ImageView android:src="@drawable/aviao" />
+
+        <ImageView android:src="@drawable/bairros" />
+
+    </TableRow>
+
+    <TableRow android:layout_marginVertical="20dp">
+
+        <ImageView android:src="@drawable/turismo" />
+
+        <ImageView android:src="@drawable/telefone" />
+
+        <ImageView android:src="@drawable/taxi" />
+
+    </TableRow>
+
+    <TableRow android:layout_marginVertical="20dp">
+
+        <ImageView android:src="@drawable/cultura" />
+
+        <ImageView android:src="@drawable/feriados" />
+
+        <ImageView android:src="@drawable/sac" />
+
+    </TableRow>
+</TableLayout>

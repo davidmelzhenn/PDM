@@ -45,6 +45,15 @@
                 android:onClick="quizClick"
                 android:textSize="20dp" />
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnRestaurante"
+                android:layout_marginTop="20dp"
+                android:text="Restaurante"
+                android:onClick="restauranteClick"
+                android:textSize="20dp" />
+
         </TableLayout>
     </ScrollView>
 </LinearLayout>

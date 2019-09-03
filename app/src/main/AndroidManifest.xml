@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".TempActivity"></activity>
+        <activity android:name=".QuizActivity" />
+        <activity android:name=".InfoActivity" />
         <activity android:name=".PoupancaActivity" />
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main2Activity" />

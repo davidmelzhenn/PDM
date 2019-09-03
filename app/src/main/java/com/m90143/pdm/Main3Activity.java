@@ -26,14 +26,16 @@ public class Main3Activity extends AppCompatActivity {
     }
 
     public void infoClick(View view) {
-        Intent intent = new Intent(this, PoupancaActivity.class);
+        Intent intent = new Intent(this, InfoActivity.class);
         startActivity(intent);
     }
 
     public void quizClick(View view) {
-        Intent intent = new Intent(this, PoupancaActivity.class);
+        Intent intent = new Intent(this, QuizActivity.class);
         startActivity(intent);
     }
 
 
+    public void restauranteClick(View view) {
+    }
 }
