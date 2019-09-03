@@ -1,8 +1,11 @@
 package com.m90143.pdm;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +20,14 @@ public class PoupancaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poupanca);
+
+        //ImageView logo =  (ImageView) findViewById(R.id.logo);
+        //logo.setImageResource(R.drawable.poupanca_logo);
+
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.poupanca_icon);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
 
         txtValorInicial = findViewById(R.id.txtValorInicial);
         txtAplicacaoMensal = findViewById(R.id.txtAplicacaoMensal);
@@ -49,9 +60,8 @@ public class PoupancaActivity extends AppCompatActivity {
             txtTaxa.requestFocus();
         }
 
-        Double mResultado = (mAplicacaoMensal * (Math.pow(1 + mTaxa, mTempoAplicacao) - 1)) / mTaxa;
-        mResultado += mValorInicial;
-        lblResultado.setText(String.format("Resultado R$: %.2f", mResultado));
+        Double mResult = ((mAplicacaoMensal * (Math.pow(1 + mTaxa, mTempoAplicacao) - 1)) / mTaxa) + mValorInicial;
+        lblResultado.setText(String.format("Resultado R$: %.2f", mResult));
 
     }
 }

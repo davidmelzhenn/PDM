@@ -18,10 +18,15 @@
             android:minHeight="25px"
             android:id="@+id/tableLayout1"
             android:padding="10dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/logo"
+                android:src="@drawable/poupanca_logo"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Valor Inicial:"
+                android:text="@string/valorInicial"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"/>
             <EditText
@@ -34,7 +39,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Aplicação mensal"
+                android:text="@string/aplicacaoMensal"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"/>
             <EditText
@@ -47,7 +52,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tempo da aplicação"
+                android:text="@string/tempoAplicacao"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"/>
             <EditText
@@ -60,7 +65,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Taxa"
+                android:text="@string/taxa"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"/>
             <EditText
@@ -75,14 +80,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/btnCalcular"
                 android:layout_marginTop="20dp"
-                android:text="Calcular"
+                android:text="@string/calcular"
                 android:onClick="calcClick"
                 android:textSize="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Resultado:"
+                android:text="@string/resultado"
                 android:layout_marginTop="30dp"
                 android:gravity="center"
                 android:id="@+id/lblResultado"

@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">PDM</string>
     <string name="valorInicial">Valor Inicial:</string>
-    <string name="aplicacaoMensal">Aplicação Mensal:</string>
-    <string name="tempoAplicacao">Tempo Aplicação:</string>
-    <string name="taxa">Taxa:</string>
+    <string name="aplicacaoMensal">Solicitud Mensual:</string>
     <string name="calcular">Calcular</string>
+    <string name="taxa">Tasa:</string>
     <string name="resultado">Resultado:</string>
+    <string name="tempoAplicacao">Tiempo de Aplicación:</string>
 </resources>
