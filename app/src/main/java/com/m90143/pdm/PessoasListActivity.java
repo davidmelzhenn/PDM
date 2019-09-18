@@ -27,20 +27,23 @@ public class PessoasListActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pessoas_list_activity);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, Arrays.asList(values));
-
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Arrays.asList(values));
         setListAdapter(adapter);
 
         ListView li = getListView();
         li.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(),values[i],
-                        Toast.LENGTH_SHORT).show();
+                CarregaTela(values[i]);
             }
         });
 
+    }
+
+    private void CarregaTela(String pessoa){
+        Intent intent = new Intent(this, EstadoListView.class);
+        intent.putExtra("Pessoa", pessoa);
+        startActivity(intent);
     }
 
 }
