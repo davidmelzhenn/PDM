@@ -16,6 +16,7 @@
         <activity android:name=".EstadoListView"/>
         <activity android:name=".TempActivity"/>
         <activity android:name=".PessoasListActivity" />
+        <activity android:name=".Main7Activity" />
         <activity android:name=".Main6Activity" />
         <activity android:name=".Main4Activity" />
         <activity android:name=".RestauranteActivity" />
