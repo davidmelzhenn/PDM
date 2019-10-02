@@ -5,6 +5,14 @@
     android:orientation="horizontal"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_weight="2"
+        android:text="fwerw"
+        android:textSize="28sp"
+        android:layout_height="match_parent"/>
+
     <TextView
         android:id="@+id/txt1"
         android:layout_width="match_parent"
@@ -16,7 +24,7 @@
     <TextView
         android:id="@+id/txt2"
         android:layout_width="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:text="dasda"
         android:textSize="28sp"
         android:layout_height="match_parent"/>

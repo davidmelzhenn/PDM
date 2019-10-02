@@ -34,13 +34,17 @@ public class Main7Activity extends AppCompatActivity {
 
     public void addClick(View v ){
 
-        String [] arrayNum = {"1","2", "3", "4","5","6","7"};
-        String [] arrayDia = {"dom","seg", "ter", "qua", "qui", "sex", "sab"};
+        String[] clubes = {"Internacional","São Paulo","Palmeiras","Flamengo","Grêmio","Atlético-MG","Cruzeiro","Santos","Fluminense","Corinthians","América-MG","Vitória","Bahia","Atlético-PR","Botafogo","Vasco","Sport","Ceará","Chapecoense","Paraná Clube"};
 
-        for (int i=0; i<arrayDia.length;i++){
+        int[] pontos = {49,49,46,44,41,38,33,31,31,30,30,29,28,27,26,24,24,24,22,16};
+
+        int[] img = {R.drawable.inter, R.drawable.sao, R.drawable.pal, R.drawable.fla, R.drawable.gre, R.drawable.cam, R.drawable.cru, R.drawable.san, R.drawable.flu, R.drawable.cor, R.drawable.ame, R.drawable.vit, R.drawable.bah, R.drawable.cap, R.drawable.bot, R.drawable.vas, R.drawable.spt, R.drawable.cea, R.drawable.cha, R.drawable.par};
+
+
+        for (int i=0; i<clubes.length;i++){
             Map<String,String> map = new HashMap<>();
-            map.put("tv1", arrayNum[i]);
-            map.put("tv2", arrayDia[i]);
+            map.put("tv1", clubes[i]);
+            map.put("tv2", String.valueOf(pontos[i]));
             lista.add(map);
         }
 

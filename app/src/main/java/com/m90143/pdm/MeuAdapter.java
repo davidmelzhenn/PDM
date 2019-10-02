@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -21,19 +22,30 @@ class MeuAdapter extends SimpleAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = super.getView(position, convertView, parent);
 
+        ImageView img = v.findViewById(R.id.img);
         TextView tv1 = v.findViewById(R.id.txt1);
         TextView tv2 = v.findViewById(R.id.txt2);
 
-        if (position %2 == 0) {
-            tv1.setTextColor(Color.YELLOW);
-            tv2.setTextColor(Color.WHITE);
-            v.setBackgroundColor(Color.BLUE);
+
+        if (position < 4){
+            v.setBackgroundColor(Color.YELLOW);
+            tv1.setTextColor(Color.BLACK);
+            tv2.setTextColor(Color.BLACK);
         }
-        else {
-            tv1.setTextColor(Color.CYAN);
-            tv2.setTextColor(Color.GREEN);
-            v.setBackgroundColor(Color.RED);
+        else{
+            if (position %2 == 0) {
+                tv1.setTextColor(Color.BLACK);
+                tv2.setTextColor(Color.BLACK);
+                v.setBackgroundColor(Color.WHITE);
+            }
+            else {
+                tv1.setTextColor(Color.WHITE);
+                tv2.setTextColor(Color.WHITE);
+                v.setBackgroundColor(Color.BLACK);
+            }
         }
+
+
 
         return v;
     }
