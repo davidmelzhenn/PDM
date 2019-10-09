@@ -47,4 +47,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, Main7Activity.class);
         startActivity(intent);
     }
+
+    public void aula8Click(View view) {
+        Intent intent = new Intent(MainActivity.this, Main8Activity.class);
+        startActivity(intent);
+    }
 }
