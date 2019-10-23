@@ -2,6 +2,7 @@ package com.m90143.pdm;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,10 +15,12 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
     private List<String> listGroup;
     private HashMap<String, List<String>> listData;
     private LayoutInflater inflater;
+    private List<Map<String, String>> lista;
 
-    public ExpandableAdapter(Context context, List<String> listGroup, HashMap<String, List<String>> listData){
+    public ExpandableAdapter(Context context, List<String> listGroup, HashMap<String, List<String>> listData, List<Map<String, String>> lista){
         this.listGroup = listGroup;
         this.listData = listData;
+        this.lista = lista;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -65,13 +68,20 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
             holder = new ViewHolderGroup();
             convertView.setTag(holder);
 
-            holder.tvGroup = (TextView) convertView.findViewById(R.id.tvGroup);
+            holder.tvDataHora = (TextView) convertView.findViewById(R.id.tvDataHora);
+            holder.tvResultado = (TextView) convertView.findViewById(R.id.tvResultado);
+
         }
         else{
             holder = (ViewHolderGroup) convertView.getTag();
         }
 
-        holder.tvGroup.setText(listGroup.get(groupPosition));
+        Map<String, String> mapa = lista.get(groupPosition);
+        holder.tvDataHora.setText(mapa.get("datahora"));
+        holder.tvResultado.setText(mapa.get("resultado"));
+
+        //holder.tvDataHora.setText(listGroup.get(groupPosition));
+        //holder.tvResultado.setText(listGroup.get(groupPosition));
 
         return convertView;
     }
@@ -86,13 +96,20 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
             holder = new ViewHolderItem();
             convertView.setTag(holder);
 
-            holder.tvItem = (TextView) convertView.findViewById(R.id.tvItem);
+            holder.tvValor1 = (TextView) convertView.findViewById(R.id.tvValor1);
+            holder.tvValor2 = (TextView) convertView.findViewById(R.id.tvValor2);
+            holder.tvOperacao = (TextView) convertView.findViewById(R.id.tvOperacao);
         }
         else{
             holder = (ViewHolderItem) convertView.getTag();
         }
 
-        holder.tvItem.setText(val);
+        //holder.tvValor1.setText(val);
+
+        Map<String, String> mapa = lista.get(groupPosition);
+        holder.tvValor1.setText(mapa.get("valor1"));
+        holder.tvValor2.setText(mapa.get("valor2"));
+        holder.tvOperacao.setText(mapa.get("operacao"));
 
         return convertView;
     }
@@ -103,11 +120,11 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
     }
 
     class ViewHolderGroup {
-        TextView tvGroup;
+        TextView tvDataHora, tvResultado;
     }
 
     class ViewHolderItem {
-        TextView tvItem;
+        TextView tvValor1, tvValor2, tvOperacao;
     }
 
 }

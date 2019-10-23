@@ -16,8 +16,8 @@ class MeuAdapter2 extends SimpleAdapter {
 
     List<Map<String, Object>> lista;
 
-    public MeuAdapter2(Context ctx, List<Map<String, Object>> lista,
-                       int linha, String[] strs, int[] ints) {
+    public MeuAdapter2(Context ctx, List<Map<String, Object>> lista, int linha,
+                       String[] strs, int[] ints) {
         super(ctx,lista,linha,strs, ints);
         this.lista = lista;
     }

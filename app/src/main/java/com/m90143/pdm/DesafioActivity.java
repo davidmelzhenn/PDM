@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
@@ -26,10 +27,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import android.widget.ExpandableListView.OnChildClickListener;
@@ -39,13 +43,17 @@ import android.widget.Toast;
 
 public class DesafioActivity extends Activity {
 
-    SimpleAdapter adapter;
+    BaseExpandableListAdapter adapter;
     private List<String> listGroup;
     private HashMap<String,List<String>> listData;
+    private List<Map<String,String>> lista;
+    private ExpandableListView expandableListView;
     private EditText txtValor1;
     private EditText txtValor2;
     private EditText txtResultado;
     private Spinner spnSeletor;
+    String fOperacao = "", fOperacaoNome = "";
+    private Integer listCount = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,52 +68,28 @@ public class DesafioActivity extends Activity {
         ArrayAdapter<CharSequence> adapter_sp = ArrayAdapter.createFromResource(this, R.array.seletor,android.R.layout.simple_spinner_dropdown_item);
         spnSeletor.setAdapter(adapter_sp);
 
-
-        buildList();
-
-        ExpandableListView expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
-        expandableListView.setAdapter(new ExpandableAdapter(DesafioActivity.this, listGroup, listData));
-
-    }
-
-    public void buildList(){
         listGroup = new ArrayList<String>();
         listData = new HashMap<String, List<String>>();
+        lista = new ArrayList<>();
 
-        // GROUP
-        listGroup.add("Grupo 1");
-        listGroup.add("Grupo 2");
-        listGroup.add("Grupo 3");
-        listGroup.add("Grupo 4");
+        expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
+        adapter = new ExpandableAdapter(DesafioActivity.this, listGroup, listData, lista);
 
-        // CHILDREN
-        List<String> auxList = new ArrayList<String>();
-        auxList.add("Item 1");
-        auxList.add("Item 2");
-        auxList.add("Item 3");
-        auxList.add("Item 4");
-        listData.put(listGroup.get(0), auxList);
+        expandableListView.setAdapter(adapter);
 
-        auxList = new ArrayList<String>();
-        auxList.add("Item 5");
-        auxList.add("Item 6");
-        auxList.add("Item 7");
-        auxList.add("Item 8");
-        listData.put(listGroup.get(1), auxList);
+        spnSeletor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                fOperacao = parent.getItemAtPosition(position).toString();
 
-        auxList = new ArrayList<String>();
-        auxList.add("Item 9");
-        auxList.add("Item 10");
-        auxList.add("Item 11");
-        auxList.add("Item 12");
-        listData.put(listGroup.get(2), auxList);
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
 
-        auxList = new ArrayList<String>();
-        auxList.add("Item 13");
-        auxList.add("Item 14");
-        auxList.add("Item 15");
-        auxList.add("Item 16");
-        listData.put(listGroup.get(3), auxList);
+            }
+        });
+
     }
 
     public void btnCalcular(View view) {
@@ -113,19 +97,62 @@ public class DesafioActivity extends Activity {
         String valor1 = txtValor1.getText().toString();
         String valor2 = txtValor2.getText().toString();
 
-        Double resultado = Double.parseDouble(valor1) * Double.parseDouble(valor2);
+        Double resultado = 0.00;
+
+        if (valor1.isEmpty() == true || valor2.isEmpty() == true ) {
+            Toast.makeText(this, "Valores inválidos. Verifique!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        switch (fOperacao)
+        {
+            case "+":
+                resultado = Double.parseDouble(valor1) + Double.parseDouble(valor2);
+                fOperacaoNome = "Soma";
+                break;
+            case "-":
+                resultado = Double.parseDouble(valor1) - Double.parseDouble(valor2);
+                fOperacaoNome = "Subtração";
+                break;
+            case "*":
+                resultado = Double.parseDouble(valor1) * Double.parseDouble(valor2);
+                fOperacaoNome = "Multiplicação";
+                break;
+            case "/":
+                resultado = Double.parseDouble(valor1) / Double.parseDouble(valor2);
+                fOperacaoNome = "Divisão";
+                break;
+            default:
+                resultado = 0.00;
+        }
 
         txtResultado.setText(resultado.toString());
 
-        //Map<String,Object> map = new HashMap<>();
-        //map.put("valor1", txtValor1.getText().toString());
-        //map.put("valor2", txtValor2.getText().toString());
-        //map.put("resultado", txtResultado.getText().toString());
-        //map.put("seletor", spnSeletor.getItemAtPosition(0).toString());
+        listGroup.add("Resultado: " + txtResultado.getText().toString());
+
+        List<String> auxList = new ArrayList<String>();
+        auxList.add("Operação: " + fOperacao);
+
+        listData.put(listGroup.get(listCount), auxList);
+        listCount++;
+
+
+        Map<String,String> map = new HashMap<>();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm", Locale.getDefault());
+        String currentDateandTime = sdf.format(new Date());
+
+        map.put("datahora", "Data/hora: " + currentDateandTime);
+        map.put("valor1", "Valor1: " + txtValor1.getText().toString());
+        map.put("valor2", "Valor2: " + txtValor2.getText().toString());
+        map.put("resultado", "Resultado: " + txtResultado.getText().toString());
+        map.put("operacao", "Operação: " + fOperacaoNome);
+
+        lista.add(map);
 
         txtValor1.setText("");
         txtValor2.setText("");
 
-        //adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
     }
 }
