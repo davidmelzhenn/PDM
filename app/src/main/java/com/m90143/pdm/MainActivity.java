@@ -57,4 +57,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, DesafioActivity.class);
         startActivity(intent);
     }
+
+    public void aula10Click(View view) {
+        //Intent intent = new Intent(MainActivity.this, Main10Activity.class);
+        //startActivity(intent);
+    }
+
+    public void aula11Click(View view) {
+        Intent intent = new Intent(MainActivity.this, Main11Activity.class);
+        startActivity(intent);
+    }
 }
