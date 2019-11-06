@@ -1,9 +1,11 @@
 package com.m90143.pdm;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -34,13 +36,36 @@ public class Main11Activity extends AppCompatActivity {
         lista = findViewById(R.id.listView);
         helper = new DatabaseHelper(this);
 
+        lista.setClickable(true);
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3){
+                String idDados = String.valueOf(carros.get(position).get("id"));
+                Intent intent = new Intent(Main11Activity.this, Update11Activity.class);
+                intent.putExtra("idDados", idDados);
+                startActivity(intent);
+            }
+
+        });
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        txtAno.setText("");
+        String query = "SELECT * FROM carro";
+
+        carros = listarCarros(query);
+        SimpleAdapter adapter = new SimpleAdapter(this, carros, R.layout.minha_linha3, de, para);
+        lista.setAdapter(adapter);
     }
 
     public void buscarAno(View view){
         String busca = txtAno.getText().toString();
         String query = "";
 
-        if (busca.isEmpty() == false){
+        if (busca.isEmpty()){
             query = "SELECT * FROM carro";
         }else{
             query = "SELECT * FROM carro WHERE ano = " + busca;
@@ -74,6 +99,7 @@ public class Main11Activity extends AppCompatActivity {
     }
 
     public void addClick(View view) {
-
+        Intent intent = new Intent(Main11Activity.this, Add11Activity.class);
+        startActivity(intent);
     }
 }
