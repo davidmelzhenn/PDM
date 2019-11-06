@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_margin="10dp"
     android:layout_height="match_parent"
-    tools:context=".Update11Activity">
+    tools:context=".AddActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,26 +79,12 @@
             android:text=""/>
     </LinearLayout>
 
-    <LinearLayout
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="5dp"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Excluir"
-            android:layout_weight="1"
-            android:textSize="18sp"
-            android:onClick="excluirCarro"
-            android:layout_marginVertical="10dp"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Atualizar"
-            android:layout_weight="1"
-            android:textSize="18sp"
-            android:onClick="atualizarCarro"
-            android:layout_marginVertical="10dp"/>
-    </LinearLayout>
+        android:text="SALVAR"
+        android:textSize="18sp"
+        android:onClick="salvarCarro"
+        android:layout_marginVertical="10dp"/>
+
 </LinearLayout>

@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void aula11Click(View view) {
-        Intent intent = new Intent(MainActivity.this, Main11Activity.class);
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 }

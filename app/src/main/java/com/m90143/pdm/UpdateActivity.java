@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Update11Activity extends AppCompatActivity {
+public class UpdateActivity extends AppCompatActivity {
 
     String idDados = "";
     private DatabaseHelper helper;
@@ -19,7 +19,7 @@ public class Update11Activity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update11);
+        setContentView(R.layout.activity_update);
 
         Bundle extras = getIntent().getExtras();
         idDados = extras.getString("idDados");
