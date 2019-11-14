@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,8 +29,11 @@ import java.util.Map;
 
 public class Rest2Activity extends AppCompatActivity {
 
-
-    private List<Map<String,Object>> dados;
+    private TextView txtMediaTemperatura;
+    private TextView txtMediaUmidade;
+    private TextView txtMediaOrvalho;
+    private TextView txtMediaPressao;
+    private List<Map<String, Object>> dados;
     private ListView lista;
     String[] de = {"temperature", "humidity", "dewpoint", "pressure", "speed", "direction", "datetime"};
     int[] para = {R.id.txtTemperature, R.id.txtHumidity, R.id.txtDewpoint, R.id.txtPressure, R.id.txtSpeed, R.id.txtDirection, R.id.txtDatetime};
@@ -39,13 +43,15 @@ public class Rest2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rest2);
 
-        lista = findViewById(R.id.listview);
+        txtMediaTemperatura = findViewById(R.id.txtMediaTemperatura);
+        txtMediaUmidade = findViewById(R.id.txtMediaUmidade);
+        txtMediaOrvalho = findViewById(R.id.txtMediaOrvalho);
+        txtMediaPressao = findViewById(R.id.txtMediaPressao);
 
-        dados = new ArrayList<Map<String, Object>>();
-        SimpleAdapter adapter = new SimpleAdapter(this, dados, R.layout.minha_linha_rest2, de, para);
-        lista.setAdapter(adapter);
+        lista = findViewById(R.id.listView);
 
-        //new HttpAsyncTask().execute();
+
+        new HttpAsyncTask().execute();
     }
 
     class HttpAsyncTask extends AsyncTask<String, Void, String> {
@@ -66,7 +72,7 @@ public class Rest2Activity extends AppCompatActivity {
                     StringBuilder builder = new StringBuilder();
 
                     String inputString;
-                    while ((inputString = bufferedReader.readLine()) != null){
+                    while ((inputString = bufferedReader.readLine()) != null) {
                         builder.append(inputString);
                     }
                     urlConnection.disconnect();
@@ -80,16 +86,17 @@ public class Rest2Activity extends AppCompatActivity {
         }
 
         @Override
-        public void onPostExecute(String result){
+        public void onPostExecute(String result) {
             dialog.dismiss();
-            if (result != null){
-                try{
+            if (result != null) {
+                try {
                     JSONObject res = new JSONObject(result);
                     JSONArray array = res.getJSONArray("weather");
 
                     dados = new ArrayList<Map<String, Object>>();
+                    float mTemperatura = 0, mUmidade = 0, mOrvalho = 0, mPressao = 0;
 
-                    for (int i = 0; i < array.length(); i++){
+                    for (int i = 0; i < array.length(); i++) {
                         JSONObject json = array.getJSONObject(i);
                         String temperature = json.getString("temperature");
                         String humidity = json.getString("humidity");
@@ -99,18 +106,28 @@ public class Rest2Activity extends AppCompatActivity {
                         String direction = json.getString("direction");
                         String datetime = json.getString("datetime");
 
+                        mTemperatura += Float.parseFloat(temperature);
+                        mUmidade += Float.parseFloat(humidity);
+                        mOrvalho += Float.parseFloat(dewpoint);
+                        mPressao += Float.parseFloat(pressure);
+
                         Map<String, Object> item = new HashMap<String, Object>();
-                        item.put("temperature", "Temp: " + temperature);
-                        item.put("humidity", "Humidada: " + humidity);
+                        item.put("temperature", "Temperatura: " + temperature);
+                        item.put("humidity", "Humidade: " + humidity);
                         item.put("dewpoint", "Orvalho: " + dewpoint);
                         item.put("pressure", "Pressão: " + pressure);
-                        item.put("speed", "Veloc.: " + speed);
+                        item.put("speed", "Velocidade: " + speed);
                         item.put("direction", "Direção: " + direction);
                         item.put("datetime", "Data/Hora: " + datetime);
 
                         dados.add(item);
 
                     }
+
+                    txtMediaTemperatura.setText(String.format("Temperatura: %.2f", mTemperatura / array.length()));
+                    txtMediaUmidade.setText(String.format("Umidade: %.2f", mUmidade / array.length()));
+                    txtMediaOrvalho.setText(String.format("Orvalho: %.2f", mOrvalho / array.length()));
+                    txtMediaPressao.setText(String.format("Pressao: %.2f", mPressao / array.length()));
 
                     SimpleAdapter adapter = new SimpleAdapter(Rest2Activity.this, dados, R.layout.minha_linha_rest2, de, para);
                     lista.setAdapter(adapter);
@@ -122,7 +139,7 @@ public class Rest2Activity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPreExecute(){
+        protected void onPreExecute() {
             dialog = new ProgressDialog(Rest2Activity.this);
             dialog.show();
         }
