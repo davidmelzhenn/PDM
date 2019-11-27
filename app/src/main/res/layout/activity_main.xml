@@ -70,4 +70,11 @@
         android:onClick="aula11Click"
         android:text="AULA 11"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="trabalhoClick"
+        android:text="TRABALHO"/>
+
 </LinearLayout>
