@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,6 +21,7 @@ import androidx.core.app.ActivityCompat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
@@ -47,6 +49,8 @@ public class TrabalhoActivity extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 final String idDados = String.valueOf(dados.get(position).get("id"));
+                final String latitude = String.valueOf(dados.get(position).get("latitude"));
+                final String longitude = String.valueOf(dados.get(position).get("longitude"));
 
                 PopupMenu popup = new PopupMenu(view.getContext(), view);
                 MenuInflater inflater = popup.getMenuInflater();
@@ -58,15 +62,21 @@ public class TrabalhoActivity extends AppCompatActivity{
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         {
+                            Intent intent;
                             switch (item.getItemId()){
                                 case R.id.mapa:
-                                    //Toast.makeText(TrabalhoActivity.this, "Item 1", Toast.LENGTH_SHORT).show();
+                                    //String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=loc:" + latitude + "," + longitude);
+                                    //intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri));
+                                    intent = new Intent(TrabalhoActivity.this, MapsActivity.class);
+                                    startActivity(intent);
                                     return true;
+
                                 case R.id.player:
-                                    Intent intent = new Intent(TrabalhoActivity.this, TrabalhoPlayerActivity.class);
+                                    intent = new Intent(TrabalhoActivity.this, TrabalhoPlayerActivity.class);
                                     intent.putExtra("idDados", idDados);
                                     startActivity(intent);
                                     return true;
+
                                 case R.id.excluir:
                                     excluir(idDados);
                                     return true;
@@ -106,13 +116,16 @@ public class TrabalhoActivity extends AppCompatActivity{
         dados = new ArrayList<Map<String, Object>>();
         for (int i = 0; i < cursor.getCount(); i++){
             Map<String, Object> item = new HashMap<String, Object>();
-            String id = cursor.getString(0);
-            String nome = cursor.getString(1);
-            String datahora = cursor.getString(2);
-            double valor = cursor.getDouble(3);
+            String id = cursor.getString(cursor.getColumnIndex("id"));
+            String nome = cursor.getString(cursor.getColumnIndex("nome"));
+            String datahora = cursor.getString(cursor.getColumnIndex("datahora"));
+            String latitude = cursor.getString(cursor.getColumnIndex("latitude"));
+            String longitude = cursor.getString(cursor.getColumnIndex("longitude"));
             item.put("id", id);
             item.put("nome", "Nome: " + nome);
             item.put("datahora", "Data/Hora: " + datahora);
+            item.put("latitude", latitude);
+            item.put("longitude", longitude);
             dados.add(item);
             cursor.moveToNext();
         }
