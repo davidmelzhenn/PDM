@@ -121,8 +121,8 @@ public class TrabalhoAddActivity extends AppCompatActivity {
                 buttonStart.setEnabled(false);
                 buttonStop.setEnabled(true);
 
-                Toast.makeText(TrabalhoAddActivity.this, "Recording started",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(TrabalhoAddActivity.this, "Recording started", Toast.LENGTH_LONG).show();
+
             } else {
                 requestPermission();
             }
