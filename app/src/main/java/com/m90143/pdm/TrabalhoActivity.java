@@ -49,6 +49,7 @@ public class TrabalhoActivity extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 final String idDados = String.valueOf(dados.get(position).get("id"));
+                final String nome = String.valueOf(dados.get(position).get("nome"));
                 final String latitude = String.valueOf(dados.get(position).get("latitude"));
                 final String longitude = String.valueOf(dados.get(position).get("longitude"));
 
@@ -67,7 +68,20 @@ public class TrabalhoActivity extends AppCompatActivity{
                                 case R.id.mapa:
                                     //String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=loc:" + latitude + "," + longitude);
                                     //intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri));
-                                    intent = new Intent(TrabalhoActivity.this, MapsActivity.class);
+
+                                    //Uri gmmIntentUri = Uri.parse("geo:" + Double.parseDouble(latitude) + "," + Double.parseDouble(longitude));
+                                    //Uri gmmIntentUri = Uri.parse("geo:-29.6522906,-52.325336");
+                                    //Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                                    //mapIntent.setPackage("com.google.android.apps.maps");
+                                    //if (mapIntent.resolveActivity(getPackageManager()) != null) {
+//                                        startActivity(mapIntent);
+//                                    }
+
+                                    intent = new Intent(TrabalhoActivity.this, MapActivity.class);
+                                    intent.putExtra("idDados", idDados);
+                                    intent.putExtra("nome", nome);
+                                    intent.putExtra("latitude", latitude);
+                                    intent.putExtra("longitude", longitude);
                                     startActivity(intent);
                                     return true;
 
