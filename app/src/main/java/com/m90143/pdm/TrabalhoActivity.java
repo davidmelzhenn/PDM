@@ -64,16 +64,6 @@ public class TrabalhoActivity extends AppCompatActivity{
                             Intent intent;
                             switch (item.getItemId()){
                                 case R.id.mapa:
-                                    //String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=loc:" + latitude + "," + longitude);
-                                    //intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri));
-
-                                    //Uri gmmIntentUri = Uri.parse("geo:" + Double.parseDouble(latitude) + "," + Double.parseDouble(longitude));
-                                    //Uri gmmIntentUri = Uri.parse("geo:-29.6522906,-52.325336");
-                                    //Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                                    //mapIntent.setPackage("com.google.android.apps.maps");
-                                    //if (mapIntent.resolveActivity(getPackageManager()) != null) {
-//                                        startActivity(mapIntent);
-//                                    }
 
                                     intent = new Intent(TrabalhoActivity.this, MapsActivity.class);
                                     intent.putExtra("idDados", idDados);
