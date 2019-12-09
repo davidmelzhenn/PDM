@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,7 +20,6 @@ import androidx.core.app.ActivityCompat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
@@ -77,7 +75,7 @@ public class TrabalhoActivity extends AppCompatActivity{
 //                                        startActivity(mapIntent);
 //                                    }
 
-                                    intent = new Intent(TrabalhoActivity.this, MapActivity.class);
+                                    intent = new Intent(TrabalhoActivity.this, MapsActivity.class);
                                     intent.putExtra("idDados", idDados);
                                     intent.putExtra("nome", nome);
                                     intent.putExtra("latitude", latitude);

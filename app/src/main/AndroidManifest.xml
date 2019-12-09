@@ -22,7 +22,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MapActivity" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDfJNwz6w7yIhsbXKs6iNWv5gw1VgeL7I0" />
+
+        <activity android:name=".MapsActivity" />
         <activity android:name=".TrabalhoPlayerActivity" />
         <activity android:name=".BaseActivity" />
         <activity android:name=".TrabalhoAddActivity" />
@@ -50,14 +59,6 @@
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".MainActivity">
-
-            <meta-data
-                android:name="com.google.android.maps.geo.API_KEY"
-                android:value="@string/key" />
-
-            <meta-data
-                android:name="com.google.android.gms.version"
-                android:value="@integer/google_play_services_version" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

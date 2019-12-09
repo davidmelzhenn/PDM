@@ -14,8 +14,6 @@
     <string name="taxaServico">Taxa de Serviço(10%) R$:</string>
     <string name="contaTotal">Conta total R$:</string>
     <string name="valorPessoa">Valor por pessoa R$:</string>
-    <string name="key">AIzaSyDfJNwz6w7yIhsbXKs6iNWv5gw1VgeL7I0</string>
-
 
     <string-array name="estados">
         <item>RS</item>
